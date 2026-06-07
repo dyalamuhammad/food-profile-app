@@ -6,6 +6,7 @@ import {
 } from "@/components/ui/card";
 
 import { Menu } from "@/types/supabase";
+import Image from "next/image";
 
 interface Props {
   menus: Menu[];
@@ -31,6 +32,13 @@ export default function MenuSection({
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {menus.map((menu) => (
           <Card key={menu.id} className="transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+             <Image
+                src={menu.image_url ?? "/placeholder.png"}
+                alt={menu.name}
+                width={400}
+                height={300}
+                className="h-52 w-full rounded-xl object-cover"
+              />
             <CardHeader>
               <CardTitle>
                 {menu.name}
@@ -38,6 +46,7 @@ export default function MenuSection({
             </CardHeader>
 
             <CardContent>
+             
               <p className="text-muted-foreground">
                 {menu.description}
               </p>

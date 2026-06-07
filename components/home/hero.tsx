@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 
 interface HeroProps {
   title: string;
   subtitle: string | null;
+  image: string | null;
 }
 
 export default function Hero({
   title,
   subtitle,
+  image,
 }: HeroProps) {
   return (
    <section className="container mx-auto px-4 py-16 lg:py-28">
@@ -47,9 +50,17 @@ export default function Hero({
 
         {/* Right */}
         <div className="flex justify-center">
-<div className="mx-auto flex aspect-square w-full max-w-sm items-center justify-center rounded-3xl bg-muted">
-              Foto Produk
-          </div>
+<div className="relative aspect-square w-full max-w-md overflow-hidden rounded-3xl shadow-xl">
+
+    <Image
+      src={image || "/placeholder.png"}
+      alt="Hero"
+      fill
+      priority
+      className="object-cover"
+    />
+
+  </div>
         </div>
       </div>
     </section>
