@@ -29,7 +29,11 @@ const navItems = [
   },
 ];
 
-export default function Navbar() {
+interface SidebarProps {
+  title: string;
+}
+
+export default function Navbar({title,}: SidebarProps) {
   return (
     <header className="sticky top-0 z-50 border-b border-amber-100 bg-white/90 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -40,7 +44,7 @@ export default function Navbar() {
           href="/"
           className="text-2xl font-extrabold tracking-tight text-primary"
         >
-          Pempek Cesi
+          {title}
         </Link>
 
         {/* Desktop */}
