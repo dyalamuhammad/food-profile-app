@@ -3,12 +3,14 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 
 interface HeroProps {
+  badge: string;
   title: string;
   subtitle: string | null;
   image: string | null;
 }
 
 export default function Hero({
+  badge,
   title,
   subtitle,
   image,
@@ -19,7 +21,7 @@ export default function Hero({
         {/* Left */}
         <div>
           <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
-            Pempek Palembang Asli
+            {badge}
           </span>
 
          <h1 className="mt-6 text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
@@ -50,17 +52,13 @@ export default function Hero({
 
         {/* Right */}
         <div className="flex justify-center">
-<div className="relative aspect-square w-full max-w-md overflow-hidden rounded-3xl shadow-xl">
-
-    <Image
-      src={image || "/placeholder.png"}
-      alt="Hero"
-      fill
-      priority
-      className="object-cover"
-    />
-
-  </div>
+          <div className="relative aspect-square w-full max-w-md overflow-hidden rounded-3xl shadow-xl">
+              <img
+                src={image || "https://placehold.co/500x500"}
+                alt="Hero"
+                className="object-cover"
+              />
+          </div>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ create extension if not exists "pgcrypto";
 create table if not exists public.site_settings (
     id uuid primary key default gen_random_uuid(),
 
+    hero_badge text null,
     hero_title text not null,
     hero_subtitle text,
 

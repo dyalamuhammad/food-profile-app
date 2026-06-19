@@ -7,16 +7,15 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import DeleteMenuDialog from "./delete-menu-dialog";
-import EditMenuDialog from "./edit-menu-dialog";
+import DeleteMenuDialog from "./delete-gallery-dialog";
+import EditMenuDialog from "./edit-gallery-dialog";
 
 interface Menu {
   id: string;
-  name: string;
-  description: string | null;
-  price: number;
+  title: string;
   image_url: string | null;
   is_active: boolean;
+  sort_order: number;
 }
 
 interface Props {
@@ -33,8 +32,8 @@ export default function MenuTable({
           <TableRow>
             <TableHead className="w-1/5">Nama</TableHead>
             <TableHead className="w-1/5">Gambar</TableHead>
-            <TableHead>Harga</TableHead>
             <TableHead>Status</TableHead>
+            <TableHead>Order</TableHead>
             <TableHead className="w-[150px]">
               Action
             </TableHead>
@@ -45,18 +44,19 @@ export default function MenuTable({
           {menus.map((menu) => (
             <TableRow key={menu.id}>
               <TableCell className="font-medium">
-                {menu.name}
+                {menu.title}
               </TableCell>
 
               <TableCell>
                 <img src={menu.image_url || "https://placehold.co/500x500"} alt="" className="size-20 rounded-xl"/>
               </TableCell>
-              <TableCell>
-                Rp {menu.price.toLocaleString("id-ID")}
-              </TableCell>
+            
 
               <TableCell>
                 {menu.is_active ? "Aktif" : "Nonaktif"}
+              </TableCell>
+              <TableCell>
+                {menu.sort_order ?? "-"}
               </TableCell>
 
               <TableCell>
@@ -65,7 +65,7 @@ export default function MenuTable({
 
                     <DeleteMenuDialog
                     id={menu.id}
-                    name={menu.name}
+                    name={menu.title}
                     />
                 </div>
               </TableCell>

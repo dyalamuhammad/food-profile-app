@@ -17,6 +17,7 @@ export default async function HomePage() {
     <main className="container mx-auto">
 
       <Hero
+        badge={settings?.hero_badge ?? ""}
         title={settings?.hero_title ?? ""}
         subtitle={settings?.hero_subtitle ?? ""}
         image={settings?.hero_image ?? null}

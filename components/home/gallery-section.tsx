@@ -33,10 +33,9 @@ export default function GallerySection({ images }: Props) {
               key={image.id}
               className="group relative aspect-square overflow-hidden rounded-2xl"
             >
-              <Image
-                src={image.image_url ?? "/placeholder.png"}
+              <img
+                src={image.image_url ?? "https://placehold.co/400x300"}
                 alt={image.title ?? "Gallery"}
-                fill
                 sizes="(max-width: 768px) 50vw, 33vw"
                 className="object-cover transition-transform duration-300 group-hover:scale-105"
               />

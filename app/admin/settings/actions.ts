@@ -11,6 +11,7 @@ export async function updateSiteSettings(formData: FormData) {
   const { error } = await supabase
     .from("site_settings")
     .update({
+      hero_badge: formData.get("hero_badge"),
       hero_title: formData.get("hero_title"),
       hero_subtitle: formData.get("hero_subtitle"),
       hero_image: formData.get("hero_image"),

@@ -33,7 +33,7 @@ export default function MenuSection({
         {menus.map((menu) => (
           <Card key={menu.id} className="transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
              <img
-                src={menu.image_url || "/placeholder.png"}
+                src={menu.image_url || "https://placehold.co/400x300"}
                 alt={menu.name}
                 width={400}
                 height={300}

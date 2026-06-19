@@ -14,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
 
   return {
-    title: settings?.hero_title ?? "Pempek Cesi",
+    title: settings?.hero_title ?? "Brand Name",
     description: settings?.hero_subtitle,
   };
 }
