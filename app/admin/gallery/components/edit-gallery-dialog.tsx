@@ -20,16 +20,16 @@ import { Textarea } from "@/components/ui/textarea";
 import { updateGallery } from "../actions";
 
 interface Props {
-  menu: {
+  gallery: {
     id: string;
     title: string;
-    is_active: string;
+    is_active: boolean;
     sort_order: number;
     image_url: string | null;
   };
 }
 
-export default function EditMenuDialog({ menu }: Props) {
+export default function EditMenuDialog({ gallery }: Props) {
   const router = useRouter();
 
   const [open, setOpen] = useState(false);
@@ -65,7 +65,7 @@ export default function EditMenuDialog({ menu }: Props) {
 
       <DialogContent className="sm:max-w-lg">
         <DialogHeader>
-          <DialogTitle>Edit Menu</DialogTitle>
+          <DialogTitle>Edit Gallery</DialogTitle>
         </DialogHeader>
 
         <form
@@ -75,7 +75,7 @@ export default function EditMenuDialog({ menu }: Props) {
           <input
             type="hidden"
             name="id"
-            defaultValue={menu.id}
+            defaultValue={gallery.id}
           />
 
           <div>
@@ -83,7 +83,7 @@ export default function EditMenuDialog({ menu }: Props) {
 
             <Input
               name="title"
-              defaultValue={menu.title}
+              defaultValue={gallery.title}
               required
             />
           </div>
@@ -93,8 +93,7 @@ export default function EditMenuDialog({ menu }: Props) {
 
             <Textarea
               name="is_active"
-              defaultValue={menu.is_active ?? ""}
-            />
+              defaultValue={gallery.is_active ? "true" : "false"}            />
           </div>
 
           <div>
@@ -102,7 +101,7 @@ export default function EditMenuDialog({ menu }: Props) {
 
             <Textarea
               name="sort_order"
-              defaultValue={menu.sort_order ?? ""}
+              defaultValue={gallery.sort_order ?? ""}
             />
           </div>
 
@@ -113,7 +112,7 @@ export default function EditMenuDialog({ menu }: Props) {
 
             <Input
               name="image_url"
-              defaultValue={menu.image_url ?? ""}
+              defaultValue={gallery.image_url ?? ""}
             />
           </div>
 

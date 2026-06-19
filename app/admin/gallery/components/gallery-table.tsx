@@ -10,7 +10,7 @@ import {
 import DeleteMenuDialog from "./delete-gallery-dialog";
 import EditMenuDialog from "./edit-gallery-dialog";
 
-interface Menu {
+interface Gallery {
   id: string;
   title: string;
   image_url: string | null;
@@ -19,7 +19,7 @@ interface Menu {
 }
 
 interface Props {
-  menus: Menu[];
+  menus: Gallery[];
 }
 
 export default function MenuTable({
@@ -61,7 +61,7 @@ export default function MenuTable({
 
               <TableCell>
                <div className="flex gap-2">
-                    <EditMenuDialog menu={menu} />
+                    <EditMenuDialog gallery={menu} />
 
                     <DeleteMenuDialog
                     id={menu.id}
