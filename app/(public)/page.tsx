@@ -26,7 +26,8 @@ export default async function HomePage() {
        <MenuSection menus={menus} />
 
       <GallerySection images={gallery} />
-      <WhatsappCTA />
+      <WhatsappCTA title={settings?.hero_title ?? ""}
+      whatsapp_number={settings?.whatsapp ?? ""}/>
 
     </main>
   );

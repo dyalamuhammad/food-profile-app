@@ -1,6 +1,11 @@
 import { Button } from "@/components/ui/button";
 
-export default function WhatsappCTA() {
+interface WhatsappProps {
+  title: string;
+  whatsapp_number: string;
+}
+
+export default function WhatsappCTA({title, whatsapp_number}: WhatsappProps) {
   return (
     <section className="py-24">
 
@@ -8,7 +13,7 @@ export default function WhatsappCTA() {
 
 <div className="rounded-3xl bg-primary px-6 py-12 text-center md:px-12 md:py-16">
 <h2 className="text-3xl font-bold md:text-4xl">
-                Siap menikmati Pempek Cesi?
+                Siap menikmati {title}?
           </h2>
 
           <p className="mx-auto mt-4 max-w-2xl text-white/80">
@@ -23,7 +28,7 @@ export default function WhatsappCTA() {
             className="mt-8"
           >
             <a
-              href="https://wa.me/628123456789"
+              href={`https://wa.me/` + whatsapp_number}
               target="_blank"
             >
               Pesan Sekarang

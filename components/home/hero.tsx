@@ -56,7 +56,7 @@ export default function Hero({
               <img
                 src={image || "https://placehold.co/500x500"}
                 alt="Hero"
-                className="object-cover"
+                className="object-cover w-full h-full"
               />
           </div>
         </div>
