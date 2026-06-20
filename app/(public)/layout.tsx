@@ -4,6 +4,7 @@ import { Poppins } from "next/font/google";
 import Navbar from "@/components/layout/navbar";
 import Footer from "@/components/layout/footer";
 import { getSiteSettings } from "@/services/settings.service";
+import { ThemeName } from "@/lib/theme";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -29,9 +30,9 @@ export default async function RootLayout({
   return (
     <html lang="id">
       <body className={poppins.className}>
-          <Navbar title={settings?.hero_title ?? ""} />
+          <Navbar title={settings?.hero_title ?? ""} theme={(settings?.theme ?? "amber") as ThemeName} />
         {children}
-         <Footer />
+         <Footer title={settings?.hero_title ?? ""}/>
       </body>
     </html>
   );

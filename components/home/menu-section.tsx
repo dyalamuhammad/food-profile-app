@@ -4,17 +4,21 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { ThemeName, themes } from "@/lib/theme";
 
 import { Menu } from "@/types/supabase";
 import Image from "next/image";
 
 interface Props {
   menus: Menu[];
+  theme: ThemeName;
 }
 
 export default function MenuSection({
-  menus,
+  menus, theme
 }: Props) {
+      const color = themes[theme];
+  
   return (
     <section
       id="menu"
@@ -51,7 +55,7 @@ export default function MenuSection({
                 {menu.description}
               </p>
 
-              <p className="mt-5 text-2xl font-bold text-primary">
+              <p className={`mt-5 text-2xl font-bold ${color.text}`}>
                 Rp {menu.price.toLocaleString("id-ID")}
               </p>
             </CardContent>

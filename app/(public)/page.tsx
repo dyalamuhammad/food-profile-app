@@ -2,6 +2,7 @@ import GallerySection from "@/components/home/gallery-section";
 import Hero from "@/components/home/hero";
 import MenuSection from "@/components/home/menu-section";
 import WhatsappCTA from "@/components/home/whatsapp-cta";
+import { ThemeName } from "@/lib/theme";
 import { getGallery } from "@/services/gallery.service";
 
 import { getMenus } from "@/services/menu.service";
@@ -21,9 +22,10 @@ export default async function HomePage() {
         title={settings?.hero_title ?? ""}
         subtitle={settings?.hero_subtitle ?? ""}
         image={settings?.hero_image ?? null}
+        theme={(settings?.theme ?? "amber") as ThemeName}
       />
 
-       <MenuSection menus={menus} />
+       <MenuSection menus={menus} theme={(settings?.theme ?? "amber") as ThemeName} />
 
       <GallerySection images={gallery} />
       <WhatsappCTA title={settings?.hero_title ?? ""}

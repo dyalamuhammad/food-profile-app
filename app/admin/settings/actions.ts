@@ -16,6 +16,7 @@ export async function updateSiteSettings(formData: FormData) {
       hero_subtitle: formData.get("hero_subtitle"),
       hero_image: formData.get("hero_image"),
       whatsapp: formData.get("whatsapp_number"),
+      theme: formData.get("theme"),
     })
     .eq("id", id);
 

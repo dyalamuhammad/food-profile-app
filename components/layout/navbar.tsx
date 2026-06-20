@@ -13,6 +13,7 @@ import {
   SheetTitle,
   SheetClose,
 } from "@/components/ui/sheet";
+import { ThemeName, themes } from "@/lib/theme";
 
 const navItems = [
   {
@@ -29,11 +30,14 @@ const navItems = [
   },
 ];
 
-interface SidebarProps {
+interface NavbarProps {
   title: string;
+  theme: ThemeName;
 }
 
-export default function Navbar({title,}: SidebarProps) {
+export default function Navbar({title, theme}: NavbarProps) {
+    const color = themes[theme];
+
   return (
     <header className="sticky top-0 z-50 border-b border-amber-100 bg-white/90 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
@@ -42,7 +46,7 @@ export default function Navbar({title,}: SidebarProps) {
 
         <Link
           href="/"
-          className="text-2xl font-extrabold tracking-tight text-primary"
+          className={`text-2xl font-extrabold tracking-tight ${color.text}`}
         >
           {title}
         </Link>
@@ -54,13 +58,13 @@ export default function Navbar({title,}: SidebarProps) {
             <Link
               key={item.href}
               href={item.href}
-              className="text-sm font-medium transition-colors hover:text-primary"
+              className={`text-sm font-medium transition-colors ${color.hover}`}
             >
               {item.label}
             </Link>
           ))}
 
-          <Button asChild>
+          <Button asChild className={color.button}>
             <a
               href="https://wa.me/628123456789"
               target="_blank"
@@ -90,8 +94,8 @@ export default function Navbar({title,}: SidebarProps) {
 
     {/* Header */}
     <div className="border-b px-6 py-5">
-      <SheetTitle className="text-xl font-bold text-primary">
-        🥟 Pempek Cesi
+      <SheetTitle className={`text-xl font-bold ${color.text}`}>
+        {title}
       </SheetTitle>
     </div>
 
@@ -101,7 +105,7 @@ export default function Navbar({title,}: SidebarProps) {
 
       <Link
         href="#about"
-        className="py-3 text-base font-medium transition-colors hover:text-primary"
+        className={`py-3 text-base font-medium transition-colors ${color.hover}`}
       >
         Tentang
       </Link>
@@ -110,7 +114,7 @@ export default function Navbar({title,}: SidebarProps) {
 
       <Link
         href="#menu"
-        className="py-3 text-base font-medium transition-colors hover:text-primary"
+        className={`py-3 text-base font-medium transition-colors ${color.hover}`}
       >
         Menu
       </Link>
@@ -119,14 +123,14 @@ export default function Navbar({title,}: SidebarProps) {
 
       <Link
         href="#gallery"
-        className="py-3 text-base font-medium transition-colors hover:text-primary"
+        className={`py-3 text-base font-medium transition-colors ${color.hover}`}
       >
         Galeri
       </Link>
       </SheetClose>
 
       <div className="mt-auto pt-6">
-        <Button asChild className="w-full">
+        <Button asChild className={`w-full ${color.button}`}>
           <a
             href="https://wa.me/628123456789"
             target="_blank"

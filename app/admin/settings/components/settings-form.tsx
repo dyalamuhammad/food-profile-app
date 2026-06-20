@@ -7,6 +7,7 @@ import { toast } from "sonner";
 import { updateSiteSettings } from "../actions";
 
 import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 type Props = {
   settings: any;
@@ -117,6 +118,26 @@ export default function SettingsForm({
           className="w-full rounded-lg border p-3"
         />
       </div>
+
+     <div>
+  <label className="mb-2 block font-medium">
+    Theme
+  </label>
+
+  <Select
+    name="theme"
+    defaultValue={settings?.theme ?? "amber"}
+  >
+    <SelectTrigger className="w-full">
+      <SelectValue placeholder="Pilih theme" />
+    </SelectTrigger>
+
+    <SelectContent>
+      <SelectItem value="amber">Amber</SelectItem>
+      <SelectItem value="purple">Purple</SelectItem>
+    </SelectContent>
+  </Select>
+</div>
 
       <Button
         className="w-full"

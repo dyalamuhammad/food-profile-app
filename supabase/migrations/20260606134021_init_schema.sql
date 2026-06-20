@@ -7,6 +7,7 @@ create table if not exists public.site_settings (
     hero_title text not null,
     hero_subtitle text,
 
+    theme text,
     whatsapp text,
     instagram text,
     address text,

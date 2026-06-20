@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { ThemeName, themes } from "@/lib/theme";
 
 interface HeroProps {
   badge: string;
   title: string;
   subtitle: string | null;
   image: string | null;
+  theme: ThemeName;
 }
 
 export default function Hero({
@@ -14,13 +16,16 @@ export default function Hero({
   title,
   subtitle,
   image,
+  theme
 }: HeroProps) {
+      const color = themes[theme];
+  
   return (
    <section className="container mx-auto px-4 py-16 lg:py-28">
   <div className="grid items-center gap-12 lg:grid-cols-2">
         {/* Left */}
         <div>
-          <span className="rounded-full bg-primary/10 px-3 py-1 text-sm font-medium text-primary">
+          <span className={`rounded-full ${color.backgroundSoft} px-3 py-1 text-sm font-medium ${color.text}`}>
             {badge}
           </span>
 
@@ -33,7 +38,7 @@ export default function Hero({
 </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild size="lg">
+            <Button asChild size="lg" className={color.button}>
               <Link href="#menu">
                 Lihat Menu
               </Link>
