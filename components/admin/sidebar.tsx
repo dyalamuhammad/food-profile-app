@@ -1,7 +1,9 @@
 "use client";
 
+import { logout } from "@/app/admin/actions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "../ui/button";
 
 const menus = [
   {
@@ -51,6 +53,14 @@ export default function Sidebar({title,}: SidebarProps) {
             {menu.title}
           </Link>
         ))}
+      <form action={logout} className="mb-auto">
+  <Button
+    variant="destructive"
+    className="w-full bg-primary text-white mb-auto"
+  >
+    Logout
+  </Button>
+</form>
       </nav>
     </aside>
   );

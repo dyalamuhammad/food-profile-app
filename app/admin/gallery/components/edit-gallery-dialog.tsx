@@ -105,8 +105,6 @@ export default function EditMenuDialog({ gallery }: Props) {
             />
           </div>
 
-          
-
           <div>
             <Label>Image URL</Label>
 

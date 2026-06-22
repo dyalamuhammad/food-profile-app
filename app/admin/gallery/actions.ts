@@ -3,6 +3,8 @@
 import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 
+// =========== create ============
+
 export async function createGallery(formData: FormData) {
   const supabase = await createClient();
 
@@ -19,6 +21,8 @@ export async function createGallery(formData: FormData) {
 
   revalidatePath("/admin/menu");
 }
+
+// ========= update ===============
 
 export async function updateGallery(formData: FormData) {
   const supabase = await createClient();
@@ -41,6 +45,8 @@ export async function updateGallery(formData: FormData) {
 
   revalidatePath("/admin/menu");
 }
+
+// =========== delete ===============
 
 export async function deleteGallery(id: string) {
   const supabase = await createClient();

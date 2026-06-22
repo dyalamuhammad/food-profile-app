@@ -28,7 +28,7 @@ export default async function HomePage() {
        <MenuSection menus={menus} theme={(settings?.theme ?? "amber") as ThemeName} />
 
       <GallerySection images={gallery} />
-      <WhatsappCTA title={settings?.hero_title ?? ""}
+      <WhatsappCTA title={settings?.hero_title ?? ""} theme={(settings?.theme ?? "amber") as ThemeName}
       whatsapp_number={settings?.whatsapp ?? ""}/>
 
     </main>

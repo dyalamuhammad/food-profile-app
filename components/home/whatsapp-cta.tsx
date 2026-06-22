@@ -1,17 +1,20 @@
 import { Button } from "@/components/ui/button";
+import { ThemeName, themes } from "@/lib/theme";
 
 interface WhatsappProps {
   title: string;
   whatsapp_number: string;
+  theme: ThemeName;
 }
 
-export default function WhatsappCTA({title, whatsapp_number}: WhatsappProps) {
+export default function WhatsappCTA({title, whatsapp_number, theme}: WhatsappProps) {
+  const color = themes[theme];
   return (
     <section className="py-24">
 
       <div className="container mx-auto px-4">
 
-<div className="rounded-3xl bg-primary px-6 py-12 text-center md:px-12 md:py-16">
+<div className={`rounded-3xl ${color.background} px-6 py-12 text-center md:px-12 md:py-16`}>
 <h2 className="text-3xl font-bold md:text-4xl">
                 Siap menikmati {title}?
           </h2>
