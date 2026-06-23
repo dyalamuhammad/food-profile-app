@@ -3,6 +3,8 @@
 import { useState, useTransition } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+
 
 import {
   Dialog,
@@ -18,7 +20,6 @@ import { Textarea } from "@/components/ui/textarea";
 
 import { Button } from "@/components/ui/button";
 import { createGallery } from "../actions";
-import { Select } from "radix-ui";
 
 export default function CreateGalleryDialog() {
     const router = useRouter();
@@ -104,10 +105,19 @@ export default function CreateGalleryDialog() {
             </Label>
            
 
-            <select name="is_active" id="">
-              <option value="true">Aktif</option>
-              <option value="false">Tidak Aktif</option>
-            </select>
+           
+            <Select
+    name="is_active"
+  >
+    <SelectTrigger className="w-full">
+      <SelectValue placeholder="Status" />
+    </SelectTrigger>
+
+    <SelectContent>
+      <SelectItem value="true">Aktif</SelectItem>
+      <SelectItem value="false">Tidak Aktif</SelectItem>
+    </SelectContent>
+  </Select>
 
           </div>
 

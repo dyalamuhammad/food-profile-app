@@ -1,10 +1,10 @@
 import CreateGalleryDialog from "./components/create-gallery-dialog";
 import GalleryTable from "./components/gallery-table";
-import { getGallery } from "@/services/gallery.service";
+import { getAllGallery } from "@/services/gallery.service";
 
 
 export default async function GalleryPage() {
-  const galleries = await getGallery();
+  const galleries = await getAllGallery();
 
   return (
     <div className="space-y-6">

@@ -15,11 +15,11 @@
     --color-secondary-foreground: #92400e;
     --color-muted: #f8f5ef;
     --color-muted-foreground: #6b7280;
-    --color-accent: #f59e0b;
+    --color-accent: #273338;
     --color-accent-foreground: #ffffff;
     --color-border: #f3e8d5;
     --color-input: #f3e8d5;
-    --color-ring: #d97706;
+    --color-ring: #273338;
 }
 
 body {

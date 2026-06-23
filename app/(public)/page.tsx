@@ -3,7 +3,7 @@ import Hero from "@/components/home/hero";
 import MenuSection from "@/components/home/menu-section";
 import WhatsappCTA from "@/components/home/whatsapp-cta";
 import { ThemeName } from "@/lib/theme";
-import { getGallery } from "@/services/gallery.service";
+import { getActiveGallery } from "@/services/gallery.service";
 
 import { getMenus } from "@/services/menu.service";
 import { getSiteSettings } from "@/services/settings.service";
@@ -12,7 +12,7 @@ export default async function HomePage() {
   const settings = await getSiteSettings();
 
   const menus = await getMenus();
-  const gallery = await getGallery();
+  const gallery = await getActiveGallery();
 
   return (
     <main className="container mx-auto">
