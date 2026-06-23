@@ -18,6 +18,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import Image from "next/image";
 
 interface Props {
   menu: {
@@ -63,19 +64,27 @@ export default function EditMenuDialog({ menu }: Props) {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="sm:max-w-lg max-h-[90vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>Edit Menu</DialogTitle>
         </DialogHeader>
+  <div className="flex-1 overflow-y-auto hide-scrollbar p-2">
 
         <form
-          action={handleSubmit}
-          className="space-y-4"
-        >
+  action={handleSubmit}
+  encType="multipart/form-data"
+  className="space-y-4"
+>
           <input
             type="hidden"
             name="id"
             defaultValue={menu.id}
+          />
+
+          <input
+            type="hidden"
+            name="current_image_url"
+            defaultValue={menu.image_url ?? ""}
           />
 
           <div>
@@ -108,14 +117,40 @@ export default function EditMenuDialog({ menu }: Props) {
             />
           </div>
 
-          <div>
-            <Label>Image URL</Label>
+        <div className="space-y-2">
 
-            <Input
-              name="image_url"
-              defaultValue={menu.image_url ?? ""}
-            />
-          </div>
+  <Label>Gambar Saat Ini</Label>
+
+  {menu.image_url ? (
+    <div className="relative h-fit w-full overflow-hidden rounded-lg border">
+
+      <img
+        src={menu.image_url}
+        alt={menu.name}
+        className="object-cover w-full h-full"
+      />
+
+    </div>
+  ) : (
+    <p className="text-sm text-muted-foreground">
+      Belum ada gambar
+    </p>
+  )}
+
+</div>
+<div>
+
+  <Label>
+    Ganti Gambar
+  </Label>
+
+  <Input
+    type="file"
+    name="image"
+    accept="image/*"
+  />
+
+</div>
 
           <Button
             className="w-full"
@@ -124,6 +159,7 @@ export default function EditMenuDialog({ menu }: Props) {
             {isPending ? "Menyimpan..." : "Simpan Perubahan"}
           </Button>
         </form>
+        </div>
       </DialogContent>
     </Dialog>
   );

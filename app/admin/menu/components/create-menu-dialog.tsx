@@ -66,6 +66,7 @@ export default function CreateMenuDialog() {
 
         <form
           action={handleSubmit}
+            encType="multipart/form-data"
           className="space-y-5"
         >
 
@@ -115,7 +116,9 @@ export default function CreateMenuDialog() {
             </Label>
 
             <Input
-              name="image_url"
+              type="file"
+              name="image"
+              accept="image/*"
             />
 
           </div>

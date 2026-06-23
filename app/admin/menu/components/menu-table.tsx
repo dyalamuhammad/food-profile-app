@@ -49,7 +49,7 @@ export default function MenuTable({
               </TableCell>
 
               <TableCell>
-                <img src={menu.image_url || "https://placehold.co/500x500"} alt="" className="size-20 rounded-xl"/>
+                <img src={menu.image_url || "https://placehold.co/500x500"} alt="" className="size-20 rounded-xl object-cover"/>
               </TableCell>
               <TableCell>
                 Rp {menu.price.toLocaleString("id-ID")}
