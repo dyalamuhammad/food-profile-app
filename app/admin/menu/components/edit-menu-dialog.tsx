@@ -71,10 +71,10 @@ export default function EditMenuDialog({ menu }: Props) {
   <div className="flex-1 overflow-y-auto hide-scrollbar p-2">
 
         <form
-  action={handleSubmit}
-  encType="multipart/form-data"
-  className="space-y-4"
->
+          action={handleSubmit}
+          encType="multipart/form-data"
+          className="space-y-4"
+        >
           <input
             type="hidden"
             name="id"
@@ -119,38 +119,36 @@ export default function EditMenuDialog({ menu }: Props) {
 
         <div className="space-y-2">
 
-  <Label>Gambar Saat Ini</Label>
+          <Label>Gambar Saat Ini</Label>
 
-  {menu.image_url ? (
-    <div className="relative h-fit w-full overflow-hidden rounded-lg border">
+          {menu.image_url ? (
+            <div className="relative h-fit w-full overflow-hidden rounded-lg border">
 
-      <img
-        src={menu.image_url}
-        alt={menu.name}
-        className="object-cover w-full h-full"
-      />
+              <img
+                src={menu.image_url}
+                alt={menu.name}
+                className="object-cover w-full h-full"
+              />
 
-    </div>
-  ) : (
-    <p className="text-sm text-muted-foreground">
-      Belum ada gambar
-    </p>
-  )}
+            </div>
+          ) : (
+            <p className="text-sm text-muted-foreground">
+              Belum ada gambar
+            </p>
+          )}
 
-</div>
-<div>
+        </div>
+        <div>
+          <Label>
+            Ganti Gambar
+          </Label>
 
-  <Label>
-    Ganti Gambar
-  </Label>
-
-  <Input
-    type="file"
-    name="image"
-    accept="image/*"
-  />
-
-</div>
+          <Input
+            type="file"
+            name="image"
+            accept="image/*"
+          />
+        </div>
 
           <Button
             className="w-full"

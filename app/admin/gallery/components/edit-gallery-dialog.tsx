@@ -63,64 +63,96 @@ export default function EditMenuDialog({ gallery }: Props) {
         </Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-lg">
+      <DialogContent className="sm:max-w-lg  max-h-[90vh] flex flex-col">
         <DialogHeader>
           <DialogTitle>Edit Gallery</DialogTitle>
         </DialogHeader>
-
-        <form
-          action={handleSubmit}
-          className="space-y-4"
-        >
-          <input
-            type="hidden"
-            name="id"
-            defaultValue={gallery.id}
-          />
-
-          <div>
-            <Label>Judul</Label>
-
-            <Input
-              name="title"
-              defaultValue={gallery.title}
-              required
+        <div className="flex-1 overflow-y-auto thin-scrollbar p-2">
+          <form
+            action={handleSubmit}
+            encType="multipart/form-data"
+            className="space-y-4"
+          >
+            <input
+              type="hidden"
+              name="id"
+              defaultValue={gallery.id}
             />
-          </div>
-
-          <div>
-            <Label>Status</Label>
-
-            <Textarea
-              name="is_active"
-              defaultValue={gallery.is_active ? "true" : "false"}            />
-          </div>
-
-          <div>
-            <Label>Order</Label>
-
-            <Textarea
-              name="sort_order"
-              defaultValue={gallery.sort_order ?? ""}
-            />
-          </div>
-
-          <div>
-            <Label>Image URL</Label>
-
-            <Input
-              name="image_url"
+            <input
+              type="hidden"
+              name="current_image_url"
               defaultValue={gallery.image_url ?? ""}
             />
+
+            <div>
+              <Label>Judul</Label>
+
+              <Input
+                name="title"
+                defaultValue={gallery.title}
+                required
+              />
+            </div>
+
+            <div>
+              <Label>Status</Label>
+
+              <Textarea
+                name="is_active"
+                defaultValue={gallery.is_active ? "true" : "false"}            />
+            </div>
+
+            <div>
+              <Label>Order</Label>
+
+              <Textarea
+                name="sort_order"
+                defaultValue={gallery.sort_order ?? ""}
+              />
+            </div>
+
+          
+          <div className="space-y-2">
+
+            <Label>Gambar Saat Ini</Label>
+
+            {gallery.image_url ? (
+              <div className="relative h-fit w-full overflow-hidden rounded-lg border">
+
+                <img
+                  src={gallery.image_url}
+                  alt={gallery.title}
+                  className="object-cover w-full h-full"
+                />
+
+              </div>
+            ) : (
+              <p className="text-sm text-muted-foreground">
+                Belum ada gambar
+              </p>
+            )}
+
+          </div>
+          <div>
+            <Label>
+              Ganti Gambar
+            </Label>
+
+            <Input
+              type="file"
+              name="image"
+              accept="image/*"
+            />
           </div>
 
-          <Button
-            className="w-full"
-            disabled={isPending}
-          >
-            {isPending ? "Menyimpan..." : "Simpan Perubahan"}
-          </Button>
-        </form>
+            <Button
+              className="w-full"
+              disabled={isPending}
+            >
+              {isPending ? "Menyimpan..." : "Simpan Perubahan"}
+            </Button>
+          </form>
+        </div>
       </DialogContent>
     </Dialog>
   );

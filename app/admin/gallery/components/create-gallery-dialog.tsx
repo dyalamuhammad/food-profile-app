@@ -68,6 +68,7 @@ export default function CreateGalleryDialog() {
 
         <form
           action={handleSubmit}
+                      encType="multipart/form-data"
           className="space-y-5"
         >
 
@@ -128,7 +129,19 @@ export default function CreateGalleryDialog() {
             </Label>
 
             <Input
-              name="image_url"
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+
+                if (!file) return;
+
+                if (file.size > 1 * 1024 * 1024) {
+                  toast.error("Ukuran gambar maksimal 1 MB");
+                  e.target.value = "";
+                }
+              }}
             />
 
           </div>

@@ -4,6 +4,8 @@ import { revalidatePath } from "next/cache";
 import { createClient } from "@/lib/supabase/server";
 import { uploadMenuImage } from "@/lib/supabase/storage";
 
+// ========= create ============
+
 export async function createMenu(formData: FormData) {
   const supabase = await createClient();
 
@@ -36,6 +38,8 @@ export async function createMenu(formData: FormData) {
 
   revalidatePath("/admin/menu");
 }
+
+// ========= update =============
 
 export async function updateMenu(formData: FormData) {
   const supabase = await createClient();
@@ -76,6 +80,8 @@ export async function updateMenu(formData: FormData) {
 
   revalidatePath("/admin/menu");
 }
+
+// ============ delete ============
 
 export async function deleteMenu(id: string) {
   const supabase = await createClient();

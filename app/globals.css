@@ -118,4 +118,21 @@ html {
     .hide-scrollbar::-webkit-scrollbar {
         display: none;
     }
+    .thin-scrollbar {
+        scrollbar-width: thin;
+        /* Firefox */
+    }
+    .thin-scrollbar::-webkit-scrollbar {
+        width: 6px;
+    }
+    .thin-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    .thin-scrollbar::-webkit-scrollbar-thumb {
+        background: hsl(var(--border));
+        border-radius: 9999px;
+    }
+    .thin-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: hsl(var(--muted-foreground));
+    }
 }
