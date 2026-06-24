@@ -18,10 +18,10 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="flex min-h-screen">
-      <Sidebar title="" />
+    <div className="min-h-screen bg-background">
+      <Sidebar title="Admin Panel" />
 
-      <main className="flex-1 p-8">
+      <main className="lg:ml-64 p-4 md:p-6 lg:p-8">
         {children}
         <Toaster richColors position="top-right" />
       </main>
