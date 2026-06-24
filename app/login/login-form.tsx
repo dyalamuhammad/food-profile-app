@@ -5,6 +5,8 @@ import { useTransition } from "react";
 import { toast } from "sonner";
 
 import { login } from "./actions";
+import { Loader2 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function LoginForm() {
   const router = useRouter();
@@ -61,13 +63,17 @@ export default function LoginForm() {
               className="w-full rounded-lg border p-3"
             />
           </div>
-            <button
+            <Button
             type="submit"
             disabled={isPending}
             className="w-full rounded-lg bg-primary py-3 text-white disabled:cursor-not-allowed disabled:opacity-50"
             >
-            {isPending ? "Memproses..." : "Login"}
-            </button>
+            {isPending && (
+    <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+  )}
+
+  {isPending ? "Memproses..." : "Login"}
+            </Button>
     </form>
   );
 }

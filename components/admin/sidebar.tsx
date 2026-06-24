@@ -3,7 +3,10 @@
 import { logout } from "@/app/admin/actions";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Button } from "../ui/button";
+import { useTransition } from "react";
+import { Loader2 } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 
 const menus = [
   {
@@ -30,7 +33,14 @@ interface SidebarProps {
 export default function Sidebar({title,}: SidebarProps) {
     
   const pathname = usePathname();
+const [isPending, startTransition] =
+    useTransition();
 
+  function handleLogout() {
+    startTransition(async () => {
+      await logout();
+    });
+  }
   return (
     <aside className="w-64 border-r bg-white">
       <div className="border-b p-6">
@@ -53,14 +63,20 @@ export default function Sidebar({title,}: SidebarProps) {
             {menu.title}
           </Link>
         ))}
-      <form action={logout} className="mb-auto">
-  <Button
-    variant="destructive"
-    className="w-full bg-primary text-white mb-auto"
-  >
-    Logout
-  </Button>
-</form>
+      <Button
+      variant="destructive"
+      className="w-full bg-primary text-white"
+      disabled={isPending}
+      onClick={handleLogout}
+    >
+      {isPending && (
+        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+      )}
+
+      {isPending
+        ? "Logging out..."
+        : "Logout"}
+    </Button>
       </nav>
     </aside>
   );
