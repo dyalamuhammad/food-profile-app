@@ -20,8 +20,13 @@ export async function login(
     });
 
   if (error) {
-    throw new Error(error.message);
+    return {
+      success: false,
+      message: "Email atau password salah.",
+    };
   }
 
-  redirect("/admin");
+  return {
+    success: true,
+  };
 }
