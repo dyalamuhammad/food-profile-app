@@ -143,11 +143,21 @@ export default function EditMenuDialog({ menu }: Props) {
             Ganti Gambar
           </Label>
 
-          <Input
-            type="file"
-            name="image"
-            accept="image/*"
-          />
+           <Input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+
+                if (!file) return;
+
+                if (file.size > 1 * 1024 * 1024) {
+                  toast.error("Ukuran gambar maksimal 1 MB");
+                  e.target.value = "";
+                }
+              }}
+            />
         </div>
 
           <Button

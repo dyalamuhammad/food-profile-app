@@ -8,6 +8,8 @@ import { updateSiteSettings } from "../actions";
 
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Label } from "@/components/ui/label";
+import { Input } from "@/components/ui/input";
 
 type Props = {
   settings: any;
@@ -91,19 +93,48 @@ export default function SettingsForm({
         />
       </div>
 
-      <div>
-        <label className="mb-2 block font-medium">
-          Hero Image URL
-        </label>
+      <div className="space-y-2">
 
-        <input
-          name="hero_image"
-          defaultValue={
-            settings.hero_image ?? ""
-          }
-          className="w-full rounded-lg border p-3"
-        />
-      </div>
+          <Label>Gambar Saat Ini</Label>
+
+          {settings.hero_image ? (
+            <div className="relative h-fit w-full overflow-hidden rounded-lg border">
+
+              <img
+                src={settings.hero_image}
+                alt={settings.name}
+                className="object-cover w-full h-full"
+              />
+
+            </div>
+          ) : (
+            <p className="text-sm text-muted-foreground">
+              Belum ada gambar
+            </p>
+          )}
+
+        </div>
+         <div>
+          <Label>
+            Ganti Gambar
+          </Label>
+
+           <Input
+              type="file"
+              name="image"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+
+                if (!file) return;
+
+                if (file.size > 1 * 1024 * 1024) {
+                  toast.error("Ukuran gambar maksimal 1 MB");
+                  e.target.value = "";
+                }
+              }}
+            />
+        </div>
 
       <div>
         <label className="mb-2 block font-medium">
