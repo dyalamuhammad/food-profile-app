@@ -46,7 +46,7 @@ export default function SettingsForm({
   return (
     <form
       action={handleSubmit}
-      className="space-y-6"
+      className="grid sm:grid-cols-2 gap-3 w-full"
     >
       <input
         type="hidden"
@@ -59,6 +59,76 @@ export default function SettingsForm({
         name="current_image_url"
         defaultValue={settings.hero_image ?? ""}
       />
+
+      <div>
+        <label className="mb-2 block font-medium">
+          SEO Title
+        </label>
+
+        <input
+          name="seo_title"
+          defaultValue={settings.seo_title ?? ""}
+          className="w-full rounded-lg border p-3"
+        />
+      </div>
+
+      <div>
+        <label className="mb-2 block font-medium">
+          SEO Description
+        </label>
+
+        <textarea
+          name="seo_description"
+          defaultValue={
+            settings.seo_description ?? ""
+          }
+          className="w-full rounded-lg border p-3"
+          rows={4}
+        />
+      </div>
+
+<div className="space-y-2">
+
+          <Label>Gambar OG Saat Ini</Label>
+
+          {settings.og_image_url ? (
+            <div className="relative h-fit w-full overflow-hidden rounded-lg border">
+
+              <img
+                src={settings.og_image_url}
+                alt={settings.name}
+                className="object-cover w-full h-full"
+              />
+
+            </div>
+          ) : (
+            <p className="text-sm text-muted-foreground">
+              Belum ada gambar
+            </p>
+          )}
+
+        </div>
+         <div>
+          <Label>
+            Ganti Gambar OG
+          </Label>
+
+           <Input
+              type="file"
+              name="og_image"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files?.[0];
+
+                if (!file) return;
+
+                if (file.size > 1 * 1024 * 1024) {
+                  toast.error("Ukuran gambar maksimal 1 MB");
+                  e.target.value = "";
+                }
+              }}
+            />
+        </div>
 
       <div>
         <label className="mb-2 block font-medium">

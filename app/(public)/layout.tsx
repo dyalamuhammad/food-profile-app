@@ -14,9 +14,35 @@ const poppins = Poppins({
 export async function generateMetadata(): Promise<Metadata> {
   const settings = await getSiteSettings();
 
+  const title = settings?.seo_title ?? "Brand Name";
+  const description = settings?.seo_description ?? "";
+  const ogImage = settings?.og_image_url;
+
   return {
-    title: settings?.hero_title ?? "Brand Name",
-    description: settings?.hero_subtitle,
+    title,
+    description,
+
+    openGraph: {
+      title,
+      description,
+      images: ogImage
+        ? [
+            {
+              url: ogImage,
+              width: 1200,
+              height: 630,
+              alt: title,
+            },
+          ]
+        : [],
+    },
+
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: ogImage ? [ogImage] : [],
+    },
   };
 }
 

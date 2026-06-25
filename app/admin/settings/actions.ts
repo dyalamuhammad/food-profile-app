@@ -11,11 +11,16 @@ export async function updateSiteSettings(formData: FormData) {
 
   const currentImageUrl =
     formData.get("current_image_url") as string;
+  const currentOgImageUrl =
+    formData.get("current_og_image_url") as string;
 
   const imageFile =
       formData.get("image") as File;
+  const ogImageFile =
+      formData.get("og_image") as File;
   
     let imageUrl = currentImageUrl;
+    let ogImageUrl = currentOgImageUrl;
   
     if (
       imageFile &&
@@ -24,6 +29,15 @@ export async function updateSiteSettings(formData: FormData) {
       imageUrl =
         await uploadMenuImage(
           imageFile
+        );
+    }
+    if (
+      ogImageFile &&
+      ogImageFile.size > 0
+    ) {
+      ogImageUrl =
+        await uploadMenuImage(
+          ogImageFile
         );
     }
 
@@ -36,6 +50,9 @@ export async function updateSiteSettings(formData: FormData) {
       hero_image: imageUrl,
       whatsapp: formData.get("whatsapp_number"),
       theme: formData.get("theme"),
+      seo_title: formData.get("seo_title"),
+      seo_description: formData.get("seo_description"),
+      og_image_url: ogImageUrl,
     })
     .eq("id", id);
 

@@ -11,7 +11,7 @@ export default async function SettingsPage() {
   
 
   return (
-    <div className="max-w-3xl">
+    <div className="">
 
       <h1 className="mb-8 text-3xl font-bold">
         Site Settings

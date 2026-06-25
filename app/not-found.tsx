@@ -24,7 +24,7 @@ export default function NotFound() {
           </Button>
         </Link>
 
-        <Link href="/menu">
+        <Link href="/#menu">
           <Button variant="outline">
             Lihat Menu
           </Button>
