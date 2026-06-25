@@ -9,10 +9,13 @@ export async function updateSiteSettings(formData: FormData) {
 
   const id = formData.get("id") as string;
 
+  const currentImageUrl =
+    formData.get("current_image_url") as string;
+
   const imageFile =
       formData.get("image") as File;
   
-    let imageUrl = null;
+    let imageUrl = currentImageUrl;
   
     if (
       imageFile &&

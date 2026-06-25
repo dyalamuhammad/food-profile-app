@@ -54,6 +54,12 @@ export default function SettingsForm({
         defaultValue={settings.id}
       />
 
+      <input
+        type="hidden"
+        name="current_image_url"
+        defaultValue={settings.hero_image ?? ""}
+      />
+
       <div>
         <label className="mb-2 block font-medium">
           Hero Badge
