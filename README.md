@@ -2,6 +2,11 @@
 
 A modern food business website with an integrated Content Management System (CMS), built using **Next.js 16**, **Supabase**, **TypeScript**, and **Tailwind CSS**.
 
+![Next.js](https://img.shields.io/badge/Next.js-16-black)
+![TypeScript](https://img.shields.io/badge/TypeScript-5-blue)
+![Supabase](https://img.shields.io/badge/Supabase-Database-green)
+![License](https://img.shields.io/badge/License-MIT-yellow)
+
 This project is designed for food businesses such as restaurants, cafés, catering services, bakeries, or street food vendors to showcase their products and manage website content through a simple admin dashboard.
 
 ---
