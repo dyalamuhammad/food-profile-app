@@ -54,24 +54,24 @@ This project is designed for food businesses such as restaurants, cafés, cateri
 
 ## 📸 Screenshots
 
-> Add your screenshots here.
+> Coming Soon...
 
 ### Home Page
 
 ```
-Screenshot Here
+Coming Soon...
 ```
 
 ### Admin Dashboard
 
 ```
-Screenshot Here
+Coming Soon...
 ```
 
 ### Menu Management
 
 ```
-Screenshot Here
+Coming Soon...
 ```
 
 ---
