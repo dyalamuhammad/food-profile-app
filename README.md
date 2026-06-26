@@ -1,4 +1,4 @@
-# 🍽️ Food App
+# 🍽️ Food Profile App
 
 A modern food business website with an integrated Content Management System (CMS), built using **Next.js 16**, **Supabase**, **TypeScript**, and **Tailwind CSS**.
 
@@ -83,8 +83,7 @@ app/
 │
 ├── (public)/
 │   ├── page.tsx
-│   ├── menu
-│   └── gallery
+│   ├── layout.tsx
 │
 ├── admin/
 │   ├── dashboard
@@ -110,7 +109,7 @@ supabase/
 Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/food-app.git
+git clone https://github.com/dyalamuhammad/food-profile-app.git
 ```
 
 Install dependencies
