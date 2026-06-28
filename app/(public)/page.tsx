@@ -7,7 +7,6 @@ import { getActiveGallery } from "@/services/gallery.service";
 
 import { getMenus } from "@/services/menu.service";
 import { getSiteSettings } from "@/services/settings.service";
-import AboutSection from "../admin/about/page";
 import About from "@/components/home/about";
 import { getAbouts } from "@/services/about.service";
 

@@ -21,7 +21,7 @@ export default function About({
         <div className="grid items-center gap-12 lg:grid-cols-2">
 
           <div className="flex aspect-square items-center justify-center rounded-3xl bg-coffee-100 text-coffee-700">
-            <img src={image} alt="" className="object-cover size-[600px] rounded-lg"/>
+            <img src={image ?? "https://placehold.co/400x300"} alt={title} className="object-cover size-[600px] rounded-lg"/>
           </div>
 
           <div>
