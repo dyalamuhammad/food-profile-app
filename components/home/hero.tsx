@@ -22,7 +22,7 @@ export default function Hero({
   
   return (
    <section className="container mx-auto px-4 py-16 lg:py-28">
-  <div className="grid items-center gap-12 lg:grid-cols-2">
+  <div className="grid items-center gap-12 lg:grid-cols-2 animate-in fade-in slide-in-from-bottom-5 duration-700">
         {/* Left */}
         <div>
           <span className={`rounded-full ${color.backgroundSoft} px-3 py-1 text-sm font-medium ${color.text}`}>
@@ -30,12 +30,12 @@ export default function Hero({
           </span>
 
          <h1 className="mt-6 text-4xl font-extrabold leading-tight md:text-5xl lg:text-6xl">
-  {title}
-</h1>
+            {title}
+          </h1>
 
           <p className="mt-5 text-base leading-7 text-muted-foreground md:text-lg">
-  {subtitle}
-</p>
+            {subtitle}
+          </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button asChild size="lg" className={color.button}>

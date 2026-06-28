@@ -22,10 +22,10 @@ export default function MenuSection({
   return (
     <section
       id="menu"
-      className="bg-amber-50 py-24"
+      className="bg-coffee-50 py-24"
     >
-       <div className="container mx-auto px-4">
-      <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl text-amber-900">
+       <div className="container mx-auto px-4 animate-in fade-in slide-in-from-bottom-5 duration-700">
+      <h2 className="mb-12 text-center text-3xl font-bold md:text-4xl text-coffee-900">
         Menu Favorit
       </h2>
       <p className="mx-auto mt-4 max-w-xl text-center text-muted-foreground">

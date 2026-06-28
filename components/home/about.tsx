@@ -1,4 +1,16 @@
-export default function About() {
+import { ThemeName } from "@/lib/theme";
+
+interface AboutProps {
+  title: string;
+  description: string | null;
+  image: string | null;
+}
+
+export default function About({
+  title,
+  description,
+  image,
+}: AboutProps) {
   return (
     <section
       id="about"
@@ -8,8 +20,8 @@ export default function About() {
 
         <div className="grid items-center gap-12 lg:grid-cols-2">
 
-          <div className="flex aspect-square items-center justify-center rounded-3xl bg-amber-100 text-amber-700">
-            Foto Pempek
+          <div className="flex aspect-square items-center justify-center rounded-3xl bg-coffee-100 text-coffee-700">
+            <img src={image} alt="" className="object-cover size-[600px] rounded-lg"/>
           </div>
 
           <div>
@@ -19,16 +31,11 @@ export default function About() {
             </span>
 
             <h2 className="mt-4 text-4xl font-bold">
-              Pempek Palembang dengan
-              cita rasa autentik
+              {title}
             </h2>
 
             <p className="mt-6 leading-8 text-muted-foreground">
-              Pempek Cesi menghadirkan pempek khas
-              Palembang menggunakan bahan pilihan,
-              ikan segar, dan resep yang telah
-              diwariskan sehingga menghasilkan rasa
-              yang gurih, kenyal, dan nikmat.
+              {description}
             </p>
 
           </div>

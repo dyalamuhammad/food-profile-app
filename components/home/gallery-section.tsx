@@ -16,9 +16,9 @@ export default function GallerySection({ images }: Props) {
   return (
     <section
       id="gallery"
-      className="bg-amber-50 py-24"
+      className="bg-coffee-50 py-24"
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 animate-in fade-in slide-in-from-bottom-5 duration-700">
         <h2 className="text-center text-4xl font-bold">
           Galeri
         </h2>

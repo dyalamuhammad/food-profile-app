@@ -21,6 +21,10 @@ const menus = [
     href: "/admin/menu",
   },
   {
+    title: "About Us",
+    href: "/admin/abouts",
+  },
+  {
     title: "Gallery",
     href: "/admin/gallery",
   },

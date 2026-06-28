@@ -39,7 +39,7 @@ export default function Navbar({title, theme}: NavbarProps) {
     const color = themes[theme];
 
   return (
-    <header className="sticky top-0 z-50 border-b border-amber-100 bg-white/90 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-coffee-100 bg-white/90 backdrop-blur-xl">
       <div className="container mx-auto flex h-16 items-center justify-between px-4">
 
         {/* Logo */}

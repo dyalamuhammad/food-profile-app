@@ -59,6 +59,11 @@ export default function SettingsForm({
         name="current_image_url"
         defaultValue={settings.hero_image ?? ""}
       />
+      <input
+        type="hidden"
+        name="current_og_image_url"
+        defaultValue={settings.og_image_url ?? ""}
+      />
 
       <div>
         <label className="mb-2 block font-medium">
@@ -233,14 +238,14 @@ export default function SettingsForm({
 
   <Select
     name="theme"
-    defaultValue={settings?.theme ?? "amber"}
+    defaultValue={settings?.theme ?? "coffee"}
   >
     <SelectTrigger className="w-full">
       <SelectValue placeholder="Pilih theme" />
     </SelectTrigger>
 
     <SelectContent>
-      <SelectItem value="amber">Amber</SelectItem>
+      <SelectItem value="coffee">Coffee</SelectItem>
       <SelectItem value="purple">Purple</SelectItem>
     </SelectContent>
   </Select>

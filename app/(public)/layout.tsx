@@ -56,9 +56,9 @@ export default async function RootLayout({
   return (
     <html lang="id">
       <body className={poppins.className}>
-          <Navbar title={settings?.hero_title ?? ""} theme={(settings?.theme ?? "amber") as ThemeName} />
+          <Navbar title={settings?.seo_title ?? ""} theme={(settings?.theme ?? "coffee") as ThemeName} />
         {children}
-         <Footer title={settings?.hero_title ?? ""}/>
+         <Footer title={settings?.seo_title ?? ""}/>
       </body>
     </html>
   );
